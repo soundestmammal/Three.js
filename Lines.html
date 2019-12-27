@@ -12,20 +12,20 @@
         <script src="js/three.js"></script>
         <script>
             // Our Javascript will go here.
+
+            var scene = new THREE.Scene();
+
+            var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
+            camera.position.set(0, 0, 100);
+            camera.lookAt(0, 0, 0);
             
             // The scene for creating lines is similar to drawing a MESH
             var renderer = new THREE.WebGLRenderer();
             renderer.setSize( window.innerWidth, window.innerHeight );
             document.body.appendChild( renderer.domElement );
 
-            var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
-            camera.position.set(0, 0, 100);
-            camera.lookAt(0, 0, 0);
-
-            var scene = new THREE.Scene();
-
             // Define a Material - For Lines I have to use LineBasicMaterial
-            var material = new THREE.LineBasicMateral( {color: 0x0000ff});
+            var material = new THREE.LineBasicMaterial( {color: 0x0000ff});
 
             var geometry = new THREE.Geometry();
             geometry.vertices.push(new THREE.Vector3( -10, 0, 0));
